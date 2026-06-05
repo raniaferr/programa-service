@@ -32,6 +32,9 @@ public class ProgramaService {
 
     public ProgramaDisciplina salvar(ProgramaDisciplina programa) {
 
+        if (programa.getDisciplinaId() == null) {
+    throw new RuntimeException("O programa deve estar vinculado a uma disciplina.");
+}
 
         if (Boolean.TRUE.equals(programa.getStatus())) {
 
