@@ -19,22 +19,19 @@ public class ProgramaService {
         return repository.findAll();
     }
 
-    // Buscar por ID
     public ProgramaDisciplina buscarPorId(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Programa não encontrado"));
     }
 
-    // Buscar por disciplina
+
     public List<ProgramaDisciplina> buscarPorDisciplina(Long disciplinaId) {
         return repository.findByDisciplinaId(disciplinaId);
     }
 
-    // Salvar programa
+
     public ProgramaDisciplina salvar(ProgramaDisciplina programa) {
 
-        // RN007:
-        // Só pode existir um programa ativo por disciplina
 
         if (Boolean.TRUE.equals(programa.getStatus())) {
 
